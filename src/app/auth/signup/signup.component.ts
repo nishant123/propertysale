@@ -29,6 +29,8 @@ import {
 //   SignupConfirmationComponent
 // } from '../signup-confirmation/signup-confirmation.component';
 
+import {FormControl} from '@angular/forms';
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -39,6 +41,16 @@ import {
 export class SignupComponent implements OnInit {
  // modalRef: BsModalRef;
   //public signupForm: FormGroup;
+  public signupForm = new FormGroup({
+    role: new FormControl(''),
+    name: new FormControl(''),
+    email: new FormControl(''),
+    phone: new FormControl(''),
+    address: new FormControl(''),
+    tnc: new FormControl(''),
+
+
+  });
   
   // tslint:disable-next-line: no-inferrable-types
   //public message: string;
@@ -152,7 +164,6 @@ export class SignupComponent implements OnInit {
   //     role: "ADMIN",
   //     organizationId: ''
   //   }
-
   //     ;
 
     // this.authService.register(queryParams).subscribe((respopnse) => {
