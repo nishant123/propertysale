@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup,FormControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 //import { AuthServices } from '../../_services/auth.service';
 //import { routerLinks } from '../../../app/_config/router-links';
@@ -47,6 +47,14 @@ export class LoginComponent implements OnInit {
   //public errorResponse: string;
  // public errorResponsePassword: string;
   checkvalue = false;
+  public loginForm = new FormGroup({
+
+    email: new FormControl(''),
+    password: new FormControl(''),
+
+
+
+  });
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
