@@ -39,6 +39,7 @@ import {
 export class SignupComponent implements OnInit {
  // modalRef: BsModalRef;
   //public signupForm: FormGroup;
+  
   // tslint:disable-next-line: no-inferrable-types
   //public message: string;
   //public fieldTextType: boolean;
@@ -61,17 +62,21 @@ export class SignupComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private router: Router,
+
   //  private authService: AuthServices,
    // private modalService: BsModalService,
-  ) { }
-
-  public ONCHANGE(e) {
-    // tslint:disable-next-line: prefer-const
-    let re = /[`~ !#$%^&*()_|+\-=?;: '",<>\{\}\[\]\\\/]/;
-    if (re.test(e.target.value)) {
-      e.preventDefault();
-    }
+  ) { 
+  
+   
   }
+
+  // public ONCHANGE(e) {
+  //   // tslint:disable-next-line: prefer-const
+  //   let re = /[`~ !#$%^&*()_|+\-=?;: '",<>\{\}\[\]\\\/]/;
+  //   if (re.test(e.target.value)) {
+  //     e.preventDefault();
+  //   }
+  // }
   emailChanges() {
    // this.emailExistErr = '';
     this.emailExists = false;
@@ -86,7 +91,7 @@ export class SignupComponent implements OnInit {
     //   cpassword: ['', Validators.required],
     // }
 
-  //  );
+  // );
   }
   // passwordCheck(password: string) {
   //   this.numberExists = false;

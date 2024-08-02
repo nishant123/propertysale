@@ -1,4 +1,6 @@
-<section class="authContainer">
+This is sign up form
+
+<!-- <section class="authContainer">
   <div class="formContainer">
     <div class="formcontent">
       <div class="logo">
@@ -6,14 +8,14 @@
       </div>
       <form class="login_form" [formGroup]="signupForm" (ngSubmit)="signup(signupForm.value)">
         <div class="header">
-          <h3 class="font-termina ">{{'signUpPage.title' | translate }}</h3>
-          <p>{{'signUpPage.subTitle' | translate }}</p>
+          <h3 class="font-termina ">{{'signUpPage.title'  }}</h3>
+          <p>{{'signUpPage.subTitle'  }}</p>
         </div>
         <div class="form-group">
-          <label for="email">{{'label.emailAddress' | translate }}</label>
+          <label for="email">{{'label.emailAddress'  }}</label>
           <div class="input">
             <input type="email" class="form-control"
-              placeholder="{{'label.enterYourRegisteredEmailAddress' | translate }}" name="email"
+              placeholder="{{'label.enterYourRegisteredEmailAddress'  }}" name="email"
               formControlName="email" id="email" [(ngModel)]="userEmail" (keypress)="ONCHANGE($event)"
               (keyup)="emailChanges()" />
             <span class="icon">
@@ -33,10 +35,10 @@
 
         </div>
         <div class="form-group">
-          <label for="password">{{'label.password' | translate }}</label>
+          <label for="password">{{'label.password'   }}</label>
           <div class="input">
             <input [type]="fieldTextType ? 'text' : 'password'" class="form-control" formControlName="password"
-              placeholder="{{'label.enterPassword' | translate }}" name="password" id="password" [(ngModel)]="password"
+              placeholder="{{'label.enterPassword'  }}" name="password" id="password" [(ngModel)]="password"
               (cut)="$event.preventDefault()" (keyup)="passwordCheck(signupForm.value.password)" />
             <span class="icon">
               <img src="./../assets/images/icon-key.png" alt="password" />
@@ -78,10 +80,10 @@
 
         </div>
         <div class="form-group">
-          <label for="cpassword">{{'label.confirmPassword' | translate }}</label>
+          <label for="cpassword">{{'label.confirmPassword'  }}</label>
           <div class="input">
             <input [type]="fieldTextTypeConfirm ? 'text' : 'password'" class="form-control"
-              placeholder="{{'label.confirmYourPassword' | translate }}" name="cpassword" id="cpassword"
+              placeholder="{{'label.confirmYourPassword'  }}" name="cpassword" id="cpassword"
               formControlName="cpassword" [(ngModel)]="cpassword" />
             <span class="icon">
               <img src="./../assets/images/icon-key.png" alt="password" />
@@ -106,15 +108,15 @@
         <div class="btnsGroup">
           <button type="submit" [disabled]="signupForm.invalid || cpassword !== password || invalidPassword === false"
             class="button-primary btn-bt">
-            {{'button.submit' | translate }}
+            {{'button.submit'  }}
           </button>
           <a routerLink="/webadmin" class="button-secondry btn-bt">
-            {{'button.login' | translate }}
+            {{'button.login' }}
           </a>
         </div>
       </form>
       <div class="copyright">
-        <p class="mb-0">{{'copyRights.text' | translate }}</p>
+        <p class="mb-0">{{'copyRights.text'  }}</p>
         <a routerLink="/privacy-policy" class="link">Privacy Policy</a>
         <a routerLink="/terms-conditions" class="link">Terms & Conditions
         </a>  
@@ -124,8 +126,7 @@
   <div class="authVectorcontent">
     <div class="vectorContent">
       <div class="register-link text-right">
-        <p>{{'signUpPage.alreadyHaveAnAccount' | translate }} <a routerLink="/webadmin">{{'signUpPage.singIn' |
-            translate
+        <p>{{'signUpPage.alreadyHaveAnAccount'   }} <a routerLink="/webadmin">{{'signUpPage.singIn' 
             }}</a>
         </p>
       </div>
@@ -133,32 +134,9 @@
         <img src="./../assets/images/signup.png" alt="vector image">
       </div>
       <div class="manageContnet">
-        <h4 class="font-termina">{{'signUpPage.manageHeading' | translate}}</h4>
-        <p>{{'signUpPage.manageText' | translate}}</p>
+        <h4 class="font-termina">{{'signUpPage.manageHeading' }}</h4>
+        <p>{{'signUpPage.manageText' }}</p>
       </div>
     </div>
   </div>
-</section>
-
-<!-- <div bsModal #signupModal="bs-modal" class="modal fade" tabindex="-1" role="dialog"
-  aria-labelledby="dialog-sizes-name2">
-  <div class="modal-dialog confirmation-modal">
-    <div class="modal-content">
-      <div class="modal-body">
-        <img class="icon" src="./../assets/images/icon-signup.png" alt="signup">
-        <button type="button" class="close pull-right" aria-label="Close" (click)="signupModal.hide()">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h4 class="alertText font-md color-dark font-termina">{{'signUpPage.modalHeader' | translate}}</h4>
-        <p class="modalContent">{{'signUpPage.modalText1' | translate}} <a class="email">{{userEmail}}</a>
-          {{'signUpPage.modalText2' |
-          translate}}</p>
-        <div class="alertFooter">
-          <p>{{'signUpPage.modalFooterText' | translate}} <a class="link">{{'signUpPage.modalFooterLink' |
-              translate}}</a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
+</section> -->
