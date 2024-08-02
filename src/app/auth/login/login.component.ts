@@ -64,7 +64,11 @@ export class LoginComponent implements OnInit {
     // private modalService: BsModalService,
 
   ) { }
-
+  public onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.log('login');
+    console.log(this.loginForm.value);
+  }
   // public ONCHANGE(e) {
   //   // tslint:disable-next-line: prefer-const
   //   let re = /[`~!#$%^&*()_|+\-=?;:'",<>\{\}\[\]\\\/]/;

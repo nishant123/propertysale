@@ -1,7 +1,7 @@
 
-<form [formGroup]="signupForm">
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
   <label for="first-name">Register As: </label>
-  <select name="Role" required="" formControlName="role" class="jsx-2379762061 form-control"><option value="" class="jsx-2379762061">Register as a:</option><option value="web-4" class="jsx-2379762061">Owner</option><option value="web-3" class="jsx-2379762061">Builder</option><option value="web-2" class="jsx-2379762061">Broker</option><option value="web-1" class="jsx-2379762061">Buyer</option></select>
+  <select name="Role" required="" formControlName="role" class="jsx-2379762061 form-control"><option value="" class="jsx-2379762061">Register as a:</option><option value="1" class="jsx-2379762061">Owner</option><option value="2" class="jsx-2379762061">Builder</option><option value="3" class="jsx-2379762061">Broker</option><option value="4" class="jsx-2379762061">Buyer</option></select>
  
   <label for="last-name"> Name: </label>
   <input id="last-name" type="text" formControlName="name">
@@ -13,5 +13,6 @@
   <input id="last-name" type="text" formControlName="address">
   <label for="last-name">Terms & Conditions: </label>
   <input type="checkbox" name="tnc" id="tnc" formControlName="tnc">
-
+  <p>Complete the form to enable button.</p>
+  <button type="submit" [disabled]="!signupForm.valid">Submit</button>
 </form>

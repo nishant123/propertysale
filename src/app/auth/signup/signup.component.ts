@@ -13,9 +13,9 @@ import {
   Router
 } from '@angular/router';
 
-// import {
-//   AuthServices
-// } from '../../_services/auth.service';
+import {
+  AuthServices
+} from '../../_services/auth.service';
 
 // import {
 //   BsModalService
@@ -75,7 +75,7 @@ export class SignupComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private router: Router,
 
-  //  private authService: AuthServices,
+    private authService: AuthServices,
    // private modalService: BsModalService,
   ) { 
   
@@ -102,9 +102,9 @@ export class SignupComponent implements OnInit {
     //     [Validators.required, Validators.compose([Validators.minLength(8), Validators.maxLength(15)])]],
     //   cpassword: ['', Validators.required],
     // }
-
   // );
   }
+  
   // passwordCheck(password: string) {
   //   this.numberExists = false;
   //   this.LetterExists = false;
@@ -153,6 +153,33 @@ export class SignupComponent implements OnInit {
 
   toggleFieldTextTypeConfirm() {
  //   this.fieldTextTypeConfirm = !this.fieldTextTypeConfirm;
+  }
+ public onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.log('signup');
+    console.log(this.signupForm.value);
+       this.authService.register(this.signupForm.value).subscribe((respopnse) => {
+      // tslint:disable-next-line: no-string-literalrole:"ADMIN"
+      // tslint:disable-next-line: no-string-literal
+      if (respopnse['code'] === 200) {
+      
+        // return this.modalRef.content.onClose;
+
+        setTimeout(() => {
+          this.router.navigate(['/webadmin']);
+        }
+          , 1000);
+      }
+    }
+      , error => {
+        if (error.error.code === 400) {
+          this.emailExists = true;
+
+        }
+      }
+
+    );
+
   }
 
   // public signup(params) {
