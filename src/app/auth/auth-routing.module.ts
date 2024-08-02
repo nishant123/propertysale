@@ -3,10 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 // import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 //import { TermsConditionsComponent } from './terms-conditions/terms-conditions.component';
 const routes: Routes = [
-  // {
-  //   path: 'webadmin',
-  //   loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
-  // },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
+  },
   {
     path: 'signup',
     loadChildren: () => import('./signup/signup.module').then(m => m.SignupModule)
