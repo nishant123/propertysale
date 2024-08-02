@@ -5,11 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { ModalModule } from 'ngx-bootstrap/modal';
-//import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 // import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 // import { TranslateHttpLoader } from '@ngx-translate/http-loader';
  import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-// import { HttpConfigInterceptor } from '../app/util/interceptor/httpconfig.interceptor';
+ import { HttpConfigInterceptor } from '../app/util/interceptor/httpconfig.interceptor';
 // import { ToastrModule } from 'ngx-toastr';
 // import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 // import { NgxChatModule } from '@pazznetwork/ngx-chat';
@@ -53,7 +53,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule,
    // ModalModule.forRoot(),
   //  BsDropdownModule.forRoot(),
-  //  HttpClientModule,
+  HttpClient,
+    HttpClientModule,
   //  ToastrModule.forRoot({
     //   timeOut: 10000,
     //   positionClass: 'tostrPosition',
@@ -75,10 +76,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     // }),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  //providers: [provideHttpClient()],
   providers: [
-    // { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true },
+   
+     { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true },
     // ExcelService,
-    { provide: APP_BASE_HREF, useValue: '/' }
+    { provide: APP_BASE_HREF, useValue: '/' },
+    { provide: HttpClient }
   ],
   exports: [],
   bootstrap: [AppComponent]
