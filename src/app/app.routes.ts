@@ -14,4 +14,8 @@ export const routes: Routes = [
         path: 'signup',
         loadChildren: () => import('./auth/signup/signup.module').then(m => m.SignupModule)
       },
+      {
+        path: 'forgetpassword',
+        loadChildren: () => import('./auth/forgetpassword/forgetpassword.module').then(m => m.ForgetpasswordModule)
+      },
 ];
