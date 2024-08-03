@@ -45,6 +45,8 @@ export class SignupComponent implements OnInit {
     role: new FormControl(''),
     name: new FormControl(''),
     email: new FormControl(''),
+    password: new FormControl(''),
+    confirmpassword: new FormControl(''),
     phone: new FormControl(''),
     address: new FormControl(''),
     tnc: new FormControl(''),
