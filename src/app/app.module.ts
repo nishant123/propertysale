@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 //import { ModalModule } from 'ngx-bootstrap/modal';
 import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 // import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -36,6 +37,20 @@ export function HttpLoaderFactory(http: HttpClient) {
 //   path: environment.mqttPath,
 //   protocol: 'wss'
 // };
+const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'webadmin',
+    pathMatch: 'full'
+  },{
+    path: 'login',
+    loadChildren: () => import('./auth/login/login.module').then(m => m.LoginModule)
+  },    
+  {
+    path: 'signup',
+    loadChildren: () => import('./auth/signup/signup.module').then(m => m.SignupModule)
+  },
+];
 
 @NgModule({
   declarations: [
@@ -74,6 +89,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     // AgmCoreModule.forRoot({
     //   apiKey: keys.agmApiKey
     // }),
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules // Pre-Loads lazy loaded modules in background after loading first module.
+    }),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   //providers: [provideHttpClient()],
