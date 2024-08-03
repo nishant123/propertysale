@@ -17,6 +17,7 @@ export class AuthServices {
     return this.http.post(endpoints.auth.registerUrl, body);
   }
   login(body:any): Observable<any> {
+    console.log('body'+body);
     return this.http.post(endpoints.auth.loginUrl, body);
   }
   

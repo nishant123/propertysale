@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup,FormControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-//import { AuthServices } from '../../_services/auth.service';
+import { AuthServices } from '../../_services/auth.service';
 //import { routerLinks } from '../../../app/_config/router-links';
 
 
@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     public route: ActivatedRoute,
-    // private authService: AuthServices,
+    private authService: AuthServices,
     // private modalService: BsModalService,
 
   ) { }
@@ -68,6 +68,35 @@ export class LoginComponent implements OnInit {
     // TODO: Use EventEmitter with form value
     console.log('login');
     console.log(this.loginForm.value);
+    const queryParams = {
+      email: this.loginForm.controls['email'].value,
+      password: this.loginForm.controls['password'].value
+    };
+  //  params.rememberMe ? this.checkvalue = true : this.checkvalue = false;
+    this.authService.login(queryParams).subscribe((response) => {
+      if (response.code === 200) {
+        localStorage.setItem('access_token', response.result.token);
+        localStorage.setItem('uuid', response.result.userDetails.id);
+        localStorage.setItem('role', response.result.userDetails.role);
+        localStorage.setItem('remeberMe', JSON.stringify(this.checkvalue));
+        console.log('login successfull');
+       // this.router.navigate([this.routeAnalytics]);
+      }
+    }, error => {
+      if (error.error.code === 400 && error.error.responseCode === 'EMAIL_NOT_VERIFIED') {
+      //  this.errorResponse = error.error.message;
+      }
+      else if (error.error.code === 400 && error.error.responseCode === 'INVALID_LOGIN_ID') {
+        // this.errorResponse = error.error.message;
+      //  this.errorResponse = 'This email ID is not registered in our platform';
+      }
+      else if (error.error.code === 400 && error.error.responseCode === 'INVALID_PASSWORD') {
+       // this.errorResponsePassword = error.error.message;
+      }
+      else if (error.error.code === 400 && error.error.responseCode === 'USER_INACTIVE') {
+      //  this.errorResponsePassword = error.error.message;
+      }
+    });
   }
   // public ONCHANGE(e) {
   //   // tslint:disable-next-line: prefer-const
