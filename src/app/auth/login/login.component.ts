@@ -74,7 +74,9 @@ export class LoginComponent implements OnInit {
     };
   //  params.rememberMe ? this.checkvalue = true : this.checkvalue = false;
     this.authService.login(queryParams).subscribe((response) => {
+      console.log('response1'+response.data);
       if (response.code === 200) {
+        console.log('response'+response);
         localStorage.setItem('access_token', response.result.token);
         localStorage.setItem('uuid', response.result.userDetails.id);
         localStorage.setItem('role', response.result.userDetails.role);
